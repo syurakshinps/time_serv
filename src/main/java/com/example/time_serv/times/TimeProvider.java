@@ -2,6 +2,7 @@ package com.example.time_serv.times;
 
 
 import com.example.external.TimeService;
+import com.example.external.TimeServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -14,7 +15,7 @@ public class TimeProvider implements CommandLineRunner {
 
     private final TimeProviderProperties timeProviderProperties;
 
-    private final TimeService timeService;
+    private final TimeServiceInterface timeService;
 
     @Value("${spring.application.name}")
     private String appName;
@@ -23,7 +24,7 @@ public class TimeProvider implements CommandLineRunner {
     private String welcomeMessage;
 
     @Autowired
-    public TimeProvider(TimeService timeService, TimeProviderProperties timeProviderProperties) {
+    public TimeProvider(TimeServiceInterface timeService, TimeProviderProperties timeProviderProperties) {
         this.timeService = timeService;
         this.timeProviderProperties = timeProviderProperties;
     }
